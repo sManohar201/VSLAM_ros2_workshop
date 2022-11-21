@@ -1,6 +1,7 @@
-devel/
-logs/
-build/
+visual_slam_ws/devel/
+visual_slam_ws/log/
+visual_slam_ws/build/
+visual_slam_ws/install/
 bin/
 lib/
 msg_gen/
