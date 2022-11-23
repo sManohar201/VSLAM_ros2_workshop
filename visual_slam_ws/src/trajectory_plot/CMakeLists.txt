@@ -23,6 +23,9 @@ find_package(tf2_ros REQUIRED)
 find_package(tf2_eigen REQUIRED)
 find_package(rclpy REQUIRED)
 
+add_executable(plotter src/trajectory_plotter.cpp)
+ament_target_dependencies(plotter rclcpp tf2_ros geometry_msgs)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -33,5 +36,15 @@ if(BUILD_TESTING)
   #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+install(TARGETS
+  plotter 
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(DIRECTORY
+  resources 
+  DESTINATION share/${PROJECT_NAME}
+)
 
 ament_package()
